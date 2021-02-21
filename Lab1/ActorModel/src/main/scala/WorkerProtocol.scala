@@ -1,3 +1,3 @@
-object WorkerProtocol {
-  case class Work(name:String)
-}
+case class Work(name:String)
+case class ActorPoll(value:List[String])
+

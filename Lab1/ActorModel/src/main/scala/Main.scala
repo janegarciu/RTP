@@ -1,6 +1,4 @@
-import akka.actor.TypedActor.context
 import akka.actor.{ActorSystem, Props}
-import akka.stream.ActorMaterializer
 
 
 object Main extends App {
@@ -10,11 +8,10 @@ object Main extends App {
 
 
   val system = ActorSystem("MyMagicSystem")
-
-  /*val router = system.actorOf(Props[RouterActor], name = "router")
-   val connectionActor = system.actorOf(Props(new ConnectionActor(router)),  name = "connectionActor")*/
-
+  val router = system.actorOf(Props[Router], "router")
   val connector = system.actorOf(Props [Connector], name = "connectionActor")
+  val workerSupervisor = system.actorOf(Props [WorkerSupervisor], name = "supervisor")
+  workerSupervisor ! "Start"
 
 
 
