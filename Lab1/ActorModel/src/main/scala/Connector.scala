@@ -13,9 +13,8 @@ class Connector extends Actor {
 
   override def preStart(): Unit = {
     List(HttpRequest(method = HttpMethods.GET,uri = "http://localhost:4000/tweets/1"),HttpRequest(method = HttpMethods.GET,uri = "http://localhost:4000/tweets/2"))
-      .foreach(endpoint=>{
-        Http(context.system).singleRequest(endpoint)
-          .pipeTo(self)
+        .foreach(endpoint=>{
+        Http(context.system).singleRequest(endpoint).pipeTo(self)
       })
 
   }
