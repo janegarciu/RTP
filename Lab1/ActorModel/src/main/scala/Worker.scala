@@ -2,11 +2,22 @@
 import akka.actor.{Actor, ActorLogging, ActorSelection}
 
 import scala.io.Source
+import scala.util.Random
 import scala.util.matching.Regex
 
-class Worker extends Actor with ActorLogging {
+class Worker extends Actor {
   var workerSupervisor : ActorSelection = context.system.actorSelection("user/supervisor")
   val mapData = readTextFile("/Users/janegarciu/Documents/RTP/Lab1/ActorModel/src/main/scala/EmotionValues.txt")
+
+  override def preRestart(reason: Throwable, message: Option[Any]) = {
+    println("Restarting...")
+    super.preRestart(reason, message)
+  }
+
+  override def postRestart(reason: Throwable) = {
+    println("...restart completed!")
+    super.postRestart(reason)
+  }
 
   def countEmotionValuesOfTweets(wordList: List[String]): Unit ={
     var counter = 0
@@ -15,7 +26,7 @@ class Worker extends Actor with ActorLogging {
         counter += mapData.get(word).head
       }
     })
-    println("Emotion value of a tweet:" + counter)
+    println("Emotion value of a tweet:" + counter + "and my worker path is:" + self.path)
   }
 
   def readTextFile(filename: String) = {
@@ -32,17 +43,20 @@ class Worker extends Actor with ActorLogging {
 
   override def receive={
     case Work(msg) => {
+      Thread.sleep(Random.nextInt(450) + 50)
+
       val pattern = new Regex(": panic")
       val pattern2 = new Regex("\"(text)\":(\"((\\\\\"|[^\"])*)\"|)")
 
       val parsedTweet = pattern findFirstIn  msg
       if(parsedTweet.isDefined){
-        workerSupervisor.! (ErrorMessage(parsedTweet.toString, self.path.toString))(self)
+        println("---------" + self.path.toString)
+        throw new RestartMeException
       }
       else {
         val tweetText = pattern2 findFirstIn  msg
         tweetText.map(myString =>{
-          println("Text of a tweet:" + myString)
+          //println("Text of a tweet:" + myString)
           countEmotionValuesOfTweets(myString.split("\":\"")(1).split(" ").toList)
         })
       }
