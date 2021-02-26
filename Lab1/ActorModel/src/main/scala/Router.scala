@@ -1,12 +1,17 @@
-import akka.actor.{Actor, ActorLogging, ActorRef, Props}
-import akka.routing
-import akka.routing.{ActorRefRoutee, RoundRobinRoutingLogic, Router}
-import WorkerProtocol.Work
+import RoundRobinRoutingLogic.{RoundRobinLogic, currentIndex}
+import akka.actor.{Actor, ActorLogging}
 
-class Router(routees : List[String]) extends Actor with ActorLogging{
+import scala.collection.mutable.ListBuffer
 
-    override def receive = {
-      case msg: Work => log.info("I m a router and i recieved a message...")
-        context.actorSelection(routees(util.Random.nextInt(routees.size))) forward (msg)
-    }
+class Router extends Actor with ActorLogging {
+
+  var myActorAddress: ListBuffer[String] = _
+
+  override def receive: Receive = {
+    case ActorPool(listBuffer) =>
+      myActorAddress = listBuffer
+    case Work(msg) =>
+      RoundRobinLogic(myActorAddress)
+      context.system.actorSelection(myActorAddress(currentIndex)) forward Work(msg)
+  }
 }
