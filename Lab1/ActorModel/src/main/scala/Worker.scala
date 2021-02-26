@@ -5,9 +5,9 @@ import scala.io.Source
 import scala.util.Random
 import scala.util.matching.Regex
 
-class Worker extends Actor {
-  var workerSupervisor : ActorSelection = context.system.actorSelection("user/supervisor")
+class Worker extends Actor with ActorLogging{
   val mapData = readTextFile("/Users/janegarciu/Documents/RTP/Lab1/ActorModel/src/main/scala/EmotionValues.txt")
+  var workerSupervisor: ActorSelection = context.system.actorSelection("user/supervisor")
 
   override def preRestart(reason: Throwable, message: Option[Any]) = {
     println("Restarting...")
@@ -17,16 +17,6 @@ class Worker extends Actor {
   override def postRestart(reason: Throwable) = {
     println("...restart completed!")
     super.postRestart(reason)
-  }
-
-  def countEmotionValuesOfTweets(wordList: List[String]): Unit ={
-    var counter = 0
-    wordList.foreach(word => {
-      if(mapData.contains(word)) {
-        counter += mapData.get(word).head
-      }
-    })
-    println("Emotion value of a tweet:" + counter + "and my worker path is:" + self.path)
   }
 
   def readTextFile(filename: String) = {
@@ -41,26 +31,36 @@ class Worker extends Actor {
     pairs.toMap
   }
 
-  override def receive={
+  override def receive = {
     case Work(msg) => {
       Thread.sleep(Random.nextInt(450) + 50)
 
       val pattern = new Regex(": panic")
       val pattern2 = new Regex("\"(text)\":(\"((\\\\\"|[^\"])*)\"|)")
 
-      val parsedTweet = pattern findFirstIn  msg
-      if(parsedTweet.isDefined){
-        println("---------" + self.path.toString)
+      val parsedTweet = pattern findFirstIn msg
+      if (parsedTweet.isDefined) {
+        //println("---------" + self.path.toString)
         throw new RestartMeException
       }
       else {
-        val tweetText = pattern2 findFirstIn  msg
-        tweetText.map(myString =>{
+        val tweetText = pattern2 findFirstIn msg
+        tweetText.map(myString => {
           //println("Text of a tweet:" + myString)
           countEmotionValuesOfTweets(myString.split("\":\"")(1).split(" ").toList)
         })
       }
     }
+  }
+
+  def countEmotionValuesOfTweets(wordList: List[String]): Unit = {
+    var counter = 0
+    wordList.foreach(word => {
+      if (mapData.contains(word)) {
+        counter += mapData.get(word).head
+      }
+    })
+    log.info("Emotion value of a tweet:" + counter)
   }
 }
 

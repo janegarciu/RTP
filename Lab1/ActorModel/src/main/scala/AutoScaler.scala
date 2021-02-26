@@ -1,31 +1,38 @@
-import java.util.Calendar
+import java.util.{Timer, TimerTask}
 
-import akka.actor.{Actor, ActorLogging, ActorSelection, Props}
+import akka.actor.{Actor, ActorSelection}
 
-import scala.collection.mutable;
+import scala.collection.mutable
+import scala.language.postfixOps
 
-class AutoScaler extends Actor{
-  var queue = mutable.Queue[Long]()
-  var supervisor : ActorSelection = context.system.actorSelection("user/supervisor")
+class AutoScaler extends Actor {
+  var queue = mutable.Queue[String]()
+  var supervisor: ActorSelection = context.system.actorSelection("user/supervisor")
+  var system: ActorSelection = context.system.actorSelection("user/myMagicSystem")
+  var count = 0
+  timer()
 
   def receive(): Receive = {
-    case timeStamp: Long =>
-      queue.addOne(timeStamp)
-      countMessages()
-
+    case Work(msg) => {
+      queue.addOne(msg)
+    }
+    case timerMessage: Boolean => {
+      if (timerMessage) {
+        timer()
+      }
+    }
   }
 
-  def countMessages(): Unit ={
-    var messagesCount = 0
-    var index = queue.length
-     var currentElement = queue.last
-    var isMatchToInterval = Calendar.getInstance().getTime.getTime - currentElement < 1000
-    while ( index > 0  && isMatchToInterval ) {
-      index -= 1
-      currentElement = queue(index)
-      messagesCount += 1
-      isMatchToInterval = Calendar.getInstance().getTime.getTime - currentElement < 1000
-    }
-    supervisor ! messagesCount
+  def timer(): Unit = {
+    val trigger = new Timer()
+    trigger.scheduleAtFixedRate(new TimerTask {
+      def run() = {
+        supervisor ! queue.length
+        queue.removeAll()
+        self ! true
+        trigger.cancel()
+      }
+    }, 1000, 1)
   }
 }
+
