@@ -100,7 +100,10 @@
         throw new RestartMeException
    
   You can see it on the screenshot below:
-  ![](Lab1/ActorModel/Screenshots/Exception.png)
+  
+  
+  ![](ActorModel/Screenshots/Exception.png)
+  
    
   ##WorkerSupervisor
   ------------
