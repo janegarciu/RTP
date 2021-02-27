@@ -8,7 +8,6 @@ import scala.language.postfixOps
 class AutoScaler extends Actor {
   var queue = mutable.Queue[String]()
   var supervisor: ActorSelection = context.system.actorSelection("user/supervisor")
-  var system: ActorSelection = context.system.actorSelection("user/myMagicSystem")
   var count = 0
   timer()
 

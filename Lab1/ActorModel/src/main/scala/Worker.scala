@@ -5,7 +5,7 @@ import scala.io.Source
 import scala.util.Random
 import scala.util.matching.Regex
 
-class Worker extends Actor with ActorLogging{
+class Worker extends Actor with ActorLogging {
   val mapData = readTextFile("/Users/janegarciu/Documents/RTP/Lab1/ActorModel/src/main/scala/EmotionValues.txt")
   var workerSupervisor: ActorSelection = context.system.actorSelection("user/supervisor")
 
@@ -52,6 +52,16 @@ class Worker extends Actor with ActorLogging{
       }
     }
   }
+
+  //    def runCommand() {
+  //      val command = Seq("docker", "restart", "46a88e10abbd")
+  //      val os = sys.props("os.name").toLowerCase
+  //      val panderToWindows = os match {
+  //        case x if x contains "windows" => Seq("cmd", "/C") ++ command
+  //        case _ => command
+  //      }
+  //      panderToWindows.!
+  //    }
 
   def countEmotionValuesOfTweets(wordList: List[String]): Unit = {
     var counter = 0
