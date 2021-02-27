@@ -38,6 +38,7 @@
  IMPLEMENTATION
  ------------
   ##Connector
+  ------------
  
   _**Connector**_ Actor is an actor which performs connection to the defined in the requirements endpoints from which receive a stream of tweets we should analyze.
   It is initialized in object _**Main**_. Connector Actor is sending those received tweets to _**AutoScaler**_ actor and to _**Router**_ actor for further processing.
@@ -46,6 +47,7 @@
          autoScaler ! Work(resp.utf8String)
          
   ##AutoScaler
+  ------------
   
   _**AutoScaler**_ Actor receives messages from _**Connector**_ and calculates the number of messages within a second using timer() method.
          
@@ -67,6 +69,7 @@
   Actor which we will describe later in this README. 
   
   ##Router
+  ------------
   
   _**Router**_ Actor receives tweets from _**Connector**_ Actor and its main role is to route those tweets to workers. 
   Workers are created dynamically in _**WorkerSupervisor**_ Actor. Router is using Round Robin strategy for a group of workers
@@ -80,6 +83,8 @@
             }
        
   ##Worker
+  ------------
+  
   _**Worker**_ Actor receives a message(tweet) from router and its main function is to analyze this tweet on emotion values and
   count the final value having those values for each emotion defined in _*EmotionValues.txt* file. I am using this pattern
   to get text value from the tweet we receive:
@@ -95,9 +100,10 @@
         throw new RestartMeException
    
   You can see it on the screenshot below:
-  ![](Lab1/ActorModel/src/main/scala/Screenshots/Exception.png)
+  ![](Lab1/ActorModel/Screenshots/Exception.png)
    
   ##WorkerSupervisor
+  ------------
   
   _**WorkerSupervisor**_ Actor is receiving the number of messages per second from _**AutoScaler**_ Actor and is dynamicaly updating the list of workers
   in dependence of the number received and is sending this updated list of workers back to the router.
@@ -115,12 +121,16 @@
           }
   
   ##WorkerProtocol
+  ------------
   
   _**WorkerProtocol**_ class defines all case classes needed for the project as well as exceptions used by OneForOne supervisor strategy.
   
   
  DEMO
  ------------
+ Link to output results of calculated emotion values:
+ 
+ https://drive.google.com/file/d/1gVIMbsa9TA43Yemyx3yNxw3aR-7iwUA5/view?usp=sharing
  
  
  
