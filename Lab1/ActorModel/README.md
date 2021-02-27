@@ -102,7 +102,7 @@
   You can see it on the screenshot below:
   
   
-  ![](/ActorModel/Screenshots/Exception.png)
+  ![](/Lab1/ActorModel/Screenshots/Exception.png)
   
    
   ##WorkerSupervisor
