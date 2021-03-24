@@ -1,6 +1,4 @@
-
 import akka.actor.{Actor, ActorLogging, ActorSelection}
-
 import scala.io.Source
 import scala.util.Random
 import scala.util.matching.Regex
@@ -8,6 +6,7 @@ import scala.util.matching.Regex
 class Worker extends Actor with ActorLogging {
   val mapData = readTextFile("/Users/janegarciu/Documents/RTP/Lab1/ActorModel/src/main/scala/EmotionValues.txt")
   var workerSupervisor: ActorSelection = context.system.actorSelection("user/supervisor")
+  var aggregator: ActorSelection = context.system.actorSelection("user/aggregator")
 
   override def preRestart(reason: Throwable, message: Option[Any]) = {
     println("Restarting...")
@@ -32,26 +31,27 @@ class Worker extends Actor with ActorLogging {
   }
 
   override def receive = {
-    case Work(msg) => {
+    case Work(msg, uuid) => {
       Thread.sleep(Random.nextInt(450) + 50)
+      val json : String = ujson.read(msg)("message")("tweet")("text").value.toString
+      val tweet : Any = ujson.read(msg)("message")("tweet").value
+      aggregator.! (JsonWrapper(tweet, uuid))(self)
 
+      val deserializedMessage: Array[String] = json.split(" ")
       val pattern = new Regex(": panic")
-      val pattern2 = new Regex("\"(text)\":(\"((\\\\\"|[^\"])*)\"|)")
-
       val parsedTweet = pattern findFirstIn msg
+
       if (parsedTweet.isDefined) {
         //println("---------" + self.path.toString)
         throw new RestartMeException
       }
       else {
-        val tweetText = pattern2 findFirstIn msg
-        tweetText.map(myString => {
-          //println("Text of a tweet:" + myString)
-          countEmotionValuesOfTweets(myString.split("\":\"")(1).split(" ").toList)
-        })
+        //println("Text of a tweet:" + myString)
+        val emotionValue: Int = countEmotionValuesOfTweets(deserializedMessage)
+        aggregator.! (EmotionValue(emotionValue, uuid))(self)
+        }
       }
     }
-  }
 
   //    def runCommand() {
   //      val command = Seq("docker", "restart", "46a88e10abbd")
@@ -63,7 +63,7 @@ class Worker extends Actor with ActorLogging {
   //      panderToWindows.!
   //    }
 
-  def countEmotionValuesOfTweets(wordList: List[String]): Unit = {
+  def countEmotionValuesOfTweets(wordList: Array[String]): Int = {
     var counter = 0
     wordList.foreach(word => {
       if (mapData.contains(word)) {
@@ -71,6 +71,7 @@ class Worker extends Actor with ActorLogging {
       }
     })
     log.info("Emotion value of a tweet:" + counter)
+    return counter
   }
 }
 

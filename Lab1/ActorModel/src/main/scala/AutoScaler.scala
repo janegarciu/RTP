@@ -12,7 +12,7 @@ class AutoScaler extends Actor {
   timer()
 
   def receive(): Receive = {
-    case Work(msg) => {
+    case Message(msg) => {
       queue.addOne(msg)
     }
     case timerMessage: Boolean => {
