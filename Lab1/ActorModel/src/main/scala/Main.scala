@@ -10,6 +10,6 @@ object Main extends App {
   val workerSupervisor2 = system.actorOf(Props[WorkerSupervisor2], name = "supervisor2")
   val autoScaler = system.actorOf(Props[AutoScaler], name = "autoScaler")
   val aggregator = system.actorOf(Props[Aggregator], name = "aggregator")
-
+  val sink = system.actorOf(Props[Sink], name = "sink")
 
 }

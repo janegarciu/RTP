@@ -1,6 +1,5 @@
 import WorkerSupervisor2.actorList2
 import akka.actor.{Actor, ActorSelection, Props}
-
 import scala.collection.mutable.ListBuffer
 
 class WorkerSupervisor2 extends Actor {
@@ -20,7 +19,8 @@ class WorkerSupervisor2 extends Actor {
 
   }
 }
-  object WorkerSupervisor2 {
-    var actorList2: ListBuffer[String] = ListBuffer[String]()
-  }
+
+object WorkerSupervisor2 {
+  var actorList2: ListBuffer[String] = ListBuffer[String]()
+}
 

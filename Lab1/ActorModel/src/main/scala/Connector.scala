@@ -1,8 +1,9 @@
+import java.util.UUID.randomUUID
+
 import akka.actor.{Actor, ActorSelection}
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.{HttpMethods, HttpRequest, HttpResponse, StatusCodes}
 import akka.stream.{ActorMaterializer, ActorMaterializerSettings}
-import java.util.UUID.randomUUID
 
 import scala.util.matching.Regex
 
@@ -27,7 +28,7 @@ class Connector extends Actor {
 
   def receive: Receive = {
     case HttpResponse(StatusCodes.OK, _, entity, _) =>
-        entity.withoutSizeLimit().dataBytes.runForeach(resp => {
+      entity.withoutSizeLimit().dataBytes.runForeach(resp => {
         val uuid = randomUUID().toString
         val message = pattern findFirstIn resp.utf8String
         router ! Work(message.get, uuid)

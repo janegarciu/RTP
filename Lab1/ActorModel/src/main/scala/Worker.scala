@@ -2,11 +2,15 @@ import akka.actor.{Actor, ActorLogging, ActorSelection}
 import scala.io.Source
 import scala.util.Random
 import scala.util.matching.Regex
+import org.json4s._
+import org.json4s.jackson.JsonMethods._
 
 class Worker extends Actor with ActorLogging {
   val mapData = readTextFile("/Users/janegarciu/Documents/RTP/Lab1/ActorModel/src/main/scala/EmotionValues.txt")
   var workerSupervisor: ActorSelection = context.system.actorSelection("user/supervisor")
   var aggregator: ActorSelection = context.system.actorSelection("user/aggregator")
+
+  implicit val formats = DefaultFormats
 
   override def preRestart(reason: Throwable, message: Option[Any]) = {
     println("Restarting...")
@@ -33,25 +37,21 @@ class Worker extends Actor with ActorLogging {
   override def receive = {
     case Work(msg, uuid) => {
       Thread.sleep(Random.nextInt(450) + 50)
-      val json : String = ujson.read(msg)("message")("tweet")("text").value.toString
-      val tweet : Any = ujson.read(msg)("message")("tweet").value
-      aggregator.! (JsonWrapper(tweet, uuid))(self)
-
-      val deserializedMessage: Array[String] = json.split(" ")
       val pattern = new Regex(": panic")
       val parsedTweet = pattern findFirstIn msg
-
       if (parsedTweet.isDefined) {
-        //println("---------" + self.path.toString)
         throw new RestartMeException
       }
       else {
-        //println("Text of a tweet:" + myString)
+        val json = parse(msg)
+        val text: String = (json \ "message" \ "tweet" \ "text").extract[String]
+        val deserializedMessage: Array[String] = text.split(" ")
         val emotionValue: Int = countEmotionValuesOfTweets(deserializedMessage)
-        aggregator.! (EmotionValue(emotionValue, uuid))(self)
-        }
+        aggregator.!(EmotionValue(emotionValue, uuid))(self)
+        aggregator.!(JsonWrapper(json.asInstanceOf[JObject], uuid))(self)
       }
     }
+  }
 
   //    def runCommand() {
   //      val command = Seq("docker", "restart", "46a88e10abbd")

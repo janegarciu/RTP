@@ -12,6 +12,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="sbt: com.fasterxml.jackson.core:jackson-annotations:2.12.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.fasterxml.jackson.core:jackson-core:2.12.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.fasterxml.jackson.core:jackson-databind:2.12.2:jar" level="project" />
     <orderEntry type="library" name="sbt: com.lightbend.akka:akka-stream-alpakka-sse_2.13:2.0.2:jar" level="project" />
     <orderEntry type="library" name="sbt: com.lihaoyi:geny_2.13:0.4.2:jar" level="project" />
     <orderEntry type="library" name="sbt: com.lihaoyi:ujson_2.13:0.9.5:jar" level="project" />
@@ -33,6 +36,10 @@
     <orderEntry type="library" name="sbt: net.java.dev.jna:jna:5.3.1:jar" level="project" />
     <orderEntry type="library" name="sbt: net.liftweb:lift-json_2.13:3.4.3:jar" level="project" />
     <orderEntry type="library" name="sbt: org.jline:jline:3.16.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.json4s:json4s-ast_2.13:3.7.0-M11:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.json4s:json4s-core_2.13:3.7.0-M11:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.json4s:json4s-jackson_2.13:3.7.0-M11:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.json4s:json4s-scalap_2.13:3.7.0-M11:jar" level="project" />
     <orderEntry type="library" name="sbt: org.mongodb.scala:mongo-scala-bson_2.13:4.2.2:jar" level="project" />
     <orderEntry type="library" name="sbt: org.mongodb.scala:mongo-scala-driver_2.13:4.2.2:jar" level="project" />
     <orderEntry type="library" name="sbt: org.mongodb:bson:4.2.2:jar" level="project" />

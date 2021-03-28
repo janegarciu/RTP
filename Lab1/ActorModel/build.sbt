@@ -14,6 +14,7 @@ libraryDependencies ++= Seq(
   "com.lihaoyi" %% "upickle" % "0.9.5",
   "org.mongodb.scala" %% "mongo-scala-driver" % "4.2.2",
   "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
-  "net.liftweb" %% "lift-json" % "3.4.3"
+  "net.liftweb" %% "lift-json" % "3.4.3",
+  "org.json4s" %% "json4s-jackson" % "3.7.0-M11"
 
 )
