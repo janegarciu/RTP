@@ -1,5 +1,6 @@
-
 import akka.actor.{Actor, ActorLogging, ActorSelection}
+import org.json4s._
+import org.json4s.jackson.JsonMethods._
 
 import scala.io.Source
 import scala.util.Random
@@ -8,6 +9,10 @@ import scala.util.matching.Regex
 class Worker extends Actor with ActorLogging {
   val mapData = readTextFile("/Users/janegarciu/Documents/RTP/Lab1/ActorModel/src/main/scala/EmotionValues.txt")
   var workerSupervisor: ActorSelection = context.system.actorSelection("user/supervisor")
+  var aggregator: ActorSelection = context.system.actorSelection("user/aggregator")
+
+  implicit val formats = DefaultFormats
+  var text: String = new String()
 
   override def preRestart(reason: Throwable, message: Option[Any]) = {
     println("Restarting...")
@@ -31,39 +36,32 @@ class Worker extends Actor with ActorLogging {
     pairs.toMap
   }
 
-  override def receive = {
-    case Work(msg) => {
+  override def receive: Receive = {
+    case Work(msg, uuid) => {
       Thread.sleep(Random.nextInt(450) + 50)
-
       val pattern = new Regex(": panic")
-      val pattern2 = new Regex("\"(text)\":(\"((\\\\\"|[^\"])*)\"|)")
-
       val parsedTweet = pattern findFirstIn msg
       if (parsedTweet.isDefined) {
-        //println("---------" + self.path.toString)
         throw new RestartMeException
       }
       else {
-        val tweetText = pattern2 findFirstIn msg
-        tweetText.map(myString => {
-          //println("Text of a tweet:" + myString)
-          countEmotionValuesOfTweets(myString.split("\":\"")(1).split(" ").toList)
-        })
+        val json = parse(msg)
+        if ((json \ "text") != JNothing) {
+          text = (json \ "text").extract[String]
+
+        }
+        else {
+          text = (json \ "message" \ "tweet" \ "text").extract[String]
+        }
+        val deserializedMessage: Array[String] = text.split(" ")
+        val emotionValue: Int = countEmotionValuesOfTweets(deserializedMessage)
+        aggregator.!(EmotionValue(emotionValue, uuid))(self)
+        aggregator.!(JsonWrapper(json.asInstanceOf[JObject], uuid))(self)
       }
     }
   }
 
-  //    def runCommand() {
-  //      val command = Seq("docker", "restart", "46a88e10abbd")
-  //      val os = sys.props("os.name").toLowerCase
-  //      val panderToWindows = os match {
-  //        case x if x contains "windows" => Seq("cmd", "/C") ++ command
-  //        case _ => command
-  //      }
-  //      panderToWindows.!
-  //    }
-
-  def countEmotionValuesOfTweets(wordList: List[String]): Unit = {
+  def countEmotionValuesOfTweets(wordList: Array[String]): Int = {
     var counter = 0
     wordList.foreach(word => {
       if (mapData.contains(word)) {
@@ -71,6 +69,7 @@ class Worker extends Actor with ActorLogging {
       }
     })
     log.info("Emotion value of a tweet:" + counter)
+    counter
   }
 }
 
