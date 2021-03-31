@@ -1,11 +1,12 @@
 import java.util.{Timer, TimerTask}
+
 import Helpers.GenericObservable
 import akka.actor.Actor
-import org.json4s.DefaultFormats
-import org.json4s.JsonAST.JObject
-import org.json4s.jackson.JsonMethods._
 import org.json4s.JsonDSL._
+import org.json4s.{DefaultFormats, _}
+import org.json4s.jackson.JsonMethods._
 import org.mongodb.scala._
+
 import scala.collection.mutable.ListBuffer
 
 class Sink extends Actor {
@@ -17,15 +18,22 @@ class Sink extends Actor {
   var usersDataCol: MongoCollection[Document] = db.getCollection("UsersData")
   var tweetBuffer = new ListBuffer[Document]()
   var userBuffer = new ListBuffer[Document]()
+  var user: JObject = _
   implicit val formats = DefaultFormats
   timer()
 
   override def receive: Receive = {
     case NewTweet(newTweet, uuid) => {
-      val user: JObject = (newTweet \ "message" \ "tweet" \ "user").extract[JObject]
+      if ((newTweet \ "user") != JNothing) {
+        user = (newTweet \ "user").extract[JObject]
+      }
+      else {
+        user = (newTweet \ "message" \ "tweet" \ "user").extract[JObject]
+      }
       val updatedUser = user ~ ("_id" -> uuid)
       val userDocument = Document(compact(render(updatedUser)))
       val tweetDocument = Document(compact(render(newTweet)))
+
       if (tweetBuffer.length == 20) {
         tweetsDataCol.insertMany(tweetBuffer.toList).results()
         usersDataCol.insertMany(userBuffer.toList).results()
@@ -50,7 +58,7 @@ class Sink extends Actor {
       def run() = {
         println("Buffer length:" + tweetBuffer.length)
         self ! true
-        if(tweetBuffer.length != 20 && tweetBuffer.nonEmpty && userBuffer.nonEmpty) {
+        if (tweetBuffer.length != 20 && tweetBuffer.nonEmpty && userBuffer.nonEmpty) {
           tweetsDataCol.insertMany(tweetBuffer.toList).results()
           usersDataCol.insertMany(userBuffer.toList).results()
           tweetBuffer.clear()
