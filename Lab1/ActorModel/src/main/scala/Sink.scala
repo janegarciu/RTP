@@ -15,8 +15,6 @@ class Sink extends Actor {
   val db: MongoDatabase = client.getDatabase("TweetsDB")
   var tweetsDataCol: MongoCollection[Document] = db.getCollection("TweetsData")
   var usersDataCol: MongoCollection[Document] = db.getCollection("UsersData")
-  tweetsDataCol.drop()
-  usersDataCol.drop()
   var tweetBuffer = new ListBuffer[Document]()
   var userBuffer = new ListBuffer[Document]()
   implicit val formats = DefaultFormats
@@ -52,10 +50,11 @@ class Sink extends Actor {
       def run() = {
         println("Buffer length:" + tweetBuffer.length)
         self ! true
-        if(tweetBuffer.length != 20) {
+        if(tweetBuffer.length != 20 && tweetBuffer.nonEmpty && userBuffer.nonEmpty) {
           tweetsDataCol.insertMany(tweetBuffer.toList).results()
           usersDataCol.insertMany(userBuffer.toList).results()
           tweetBuffer.clear()
+          userBuffer.clear()
         }
         trigger.cancel()
       }

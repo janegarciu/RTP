@@ -13,7 +13,7 @@ class Aggregator extends Actor {
     case JsonWrapper(tweet, uuid) => {
       tweetMap += (uuid -> tweet)
       if (engagementRatioMap.contains(uuid) && emotionValueMap.contains(uuid)) {
-        newTweet = tweet ~ ("engagement_ratio" -> engagementRatioMap(uuid)) ~ ("emotion_value" -> emotionValueMap(uuid))
+        newTweet = tweet ~ ("engagement_ratio" -> engagementRatioMap(uuid)) ~ ("emotion_value" -> emotionValueMap(uuid)) ~ ("user_id" -> uuid)
         sink.!(NewTweet(newTweet, uuid))(self)
       }
       else {
