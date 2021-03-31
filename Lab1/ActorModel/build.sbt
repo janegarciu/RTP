@@ -5,7 +5,7 @@ version := "0.1"
 
 scalaVersion := "2.13.4"
 
-val AkkaVersion = "2.5.31"
+val AkkaVersion = "2.6.13"
 val AkkaHttpVersion = "10.1.11"
 libraryDependencies ++= Seq(
   "com.lightbend.akka" %% "akka-stream-alpakka-sse" % "2.0.2",
@@ -15,6 +15,6 @@ libraryDependencies ++= Seq(
   "org.mongodb.scala" %% "mongo-scala-driver" % "4.2.2",
   "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
   "net.liftweb" %% "lift-json" % "3.4.3",
-  "org.json4s" %% "json4s-jackson" % "3.7.0-M11"
-
+  "org.json4s" %% "json4s-jackson" % "3.7.0-M11",
+  "ch.qos.logback" % "logback-classic" % "1.2.3" % Runtime
 )

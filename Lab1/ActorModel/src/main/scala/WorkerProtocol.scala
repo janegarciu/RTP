@@ -9,7 +9,7 @@ case class Work2(name: String, uuid: String)
 
 case class Message(name: String)
 
-case class NewTweet(tweet: JObject)
+case class NewTweet(tweet: JObject, uuid: String)
 
 case class JsonWrapper(json: JObject, uuid: String)
 
