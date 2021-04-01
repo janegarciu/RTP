@@ -1,12 +1,10 @@
 import java.util.{Timer, TimerTask}
-
 import Helpers.GenericObservable
 import akka.actor.Actor
 import org.json4s.JsonDSL._
 import org.json4s.{DefaultFormats, _}
 import org.json4s.jackson.JsonMethods._
 import org.mongodb.scala._
-
 import scala.collection.mutable.ListBuffer
 
 class Sink extends Actor {
@@ -56,13 +54,12 @@ class Sink extends Actor {
     val trigger = new Timer()
     trigger.scheduleAtFixedRate(new TimerTask {
       def run() = {
-        println("Buffer length:" + tweetBuffer.length)
-        self ! true
         if (tweetBuffer.length != 20 && tweetBuffer.nonEmpty && userBuffer.nonEmpty) {
           tweetsDataCol.insertMany(tweetBuffer.toList).results()
           usersDataCol.insertMany(userBuffer.toList).results()
           tweetBuffer.clear()
           userBuffer.clear()
+          self ! true
         }
         trigger.cancel()
       }
