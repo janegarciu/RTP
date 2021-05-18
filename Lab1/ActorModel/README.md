@@ -5,8 +5,8 @@
  * [TECHNOLOGIES](#TECHNOLOGIES)
  * [REQUIREMENTS](#REQUIREMENTS)
  * [IMPLEMENTATION](#IMPLEMENTATION)
-     * [Connector](#Connector)
-     * [AutoScaler](#AutoScaler)
+     * [actormodel.Connector](#Connector)
+     * [actormodel.AutoScaler](#AutoScaler)
      * [Router](#Router)
      * [Worker](#Worker)
      * [WorkerSupervisor](#WorkerSupervisor)
@@ -37,19 +37,19 @@
  
  IMPLEMENTATION
  ------------
-  ##Connector
+  ##actormodel.Connector
   ------------
  
-  _**Connector**_ Actor is an actor which performs connection to the defined in the requirements endpoints from which receive a stream of tweets we should analyze.
-  It is initialized in object _**Main**_. Connector Actor is sending those received tweets to _**AutoScaler**_ actor and to _**Router**_ actor for further processing.
+  _**actormodel.Connector**_ Actor is an actor which performs connection to the defined in the requirements endpoints from which receive a stream of tweets we should analyze.
+  It is initialized in object _**Main**_. actormodel.Connector Actor is sending those received tweets to _**actormodel.AutoScaler**_ actor and to _**Router**_ actor for further processing.
 
          router ! Work(resp.utf8String)
          autoScaler ! Work(resp.utf8String)
          
-  ##AutoScaler
+  ##actormodel.AutoScaler
   ------------
   
-  _**AutoScaler**_ Actor receives messages from _**Connector**_ and calculates the number of messages within a second using timer() method.
+  _**actormodel.AutoScaler**_ Actor receives messages from _**actormodel.Connector**_ and calculates the number of messages within a second using timer() method.
          
          
          def timer(): Unit = {
@@ -71,7 +71,7 @@
   ##Router
   ------------
   
-  _**Router**_ Actor receives tweets from _**Connector**_ Actor and its main role is to route those tweets to workers. 
+  _**Router**_ Actor receives tweets from _**actormodel.Connector**_ Actor and its main role is to route those tweets to workers. 
   Workers are created dynamically in _**WorkerSupervisor**_ Actor. Router is using Round Robin strategy for a group of workers
   defined in _**RoundRobinRoutingLogic**_ object. Round Robin is sending so called "work" to workers in a specific order, concurrently to 
   the number of workers we have defined, from first worker to the last one, then repeating this logic.
@@ -108,7 +108,7 @@
   ##WorkerSupervisor
   ------------
   
-  _**WorkerSupervisor**_ Actor is receiving the number of messages per second from _**AutoScaler**_ Actor and is dynamicaly updating the list of workers
+  _**WorkerSupervisor**_ Actor is receiving the number of messages per second from _**actormodel.AutoScaler**_ Actor and is dynamicaly updating the list of workers
   in dependence of the number received and is sending this updated list of workers back to the router.
   
             if (actorListLenght == maxNumberOfWorkers) {
