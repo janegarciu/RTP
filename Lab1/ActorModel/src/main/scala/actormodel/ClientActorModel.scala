@@ -1,21 +1,30 @@
-package tcpserver
-import akka.actor.{ Actor, ActorRef, Props }
-import akka.io.{ IO, Tcp }
-import akka.util.ByteString
+package actormodel
+
 import java.net.InetSocketAddress
-object Client {
-  def props(remote: InetSocketAddress, replies: ActorRef) =
-    Props(classOf[Client], remote, replies)
+
+import akka.actor.{Actor, ActorRef, Props}
+import akka.io.{IO, Tcp}
+import akka.util.ByteString
+
+object ClientActorModel {
+  def props(remote: InetSocketAddress, listener: ActorRef) =
+    Props(classOf[ClientActorModel], remote, listener)
 }
-class Client(remote: InetSocketAddress, listener: ActorRef) extends Actor {
-  import Tcp._
+
+class ClientActorModel(remote: InetSocketAddress, var listener: ActorRef) extends Actor {
+
+  import akka.io.Tcp._
   import context.system
+
+  if (listener == null) listener = Tcp.get(context.system).manager
+
   IO(Tcp) ! Connect(remote)
-  def receive =
-  {
+
+  def receive = {
     case CommandFailed(_: Connect) =>
       listener ! "connect failed"
       context stop self
+
     case c @ Connected(remote, local) =>
       listener ! c
       val connection = sender()
@@ -27,6 +36,7 @@ class Client(remote: InetSocketAddress, listener: ActorRef) extends Actor {
           // O/S buffer was full
           listener ! "write failed"
         case Received(data) =>
+          println(s"Data received - ${data.utf8String}")
           listener ! data
         case "close" =>
           connection ! Close

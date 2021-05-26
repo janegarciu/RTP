@@ -25,7 +25,7 @@ class Sink extends Actor {
   var usersDataCol: MongoCollection[Document] = db.getCollection("UsersData")
   var tweetBuffer = new ListBuffer[Document]()
   var userBuffer = new ListBuffer[Document]()
-  var clientReceive: ActorSelection = context.system.actorSelection("user/clientReceive")
+  var serverBuffer: ActorSelection = context.system.actorSelection("user/serverBuffer")
 
   var user: JObject = _
   implicit val formats = DefaultFormats
@@ -40,8 +40,8 @@ class Sink extends Actor {
         user = (newTweet \ "message" \ "tweet" \ "user").extract[JObject]
       }
       val updatedUser = user ~ ("_id" -> uuid)
-      clientReceive ! UpdatedUser(updatedUser.toString)
-      clientReceive ! Tweet(newTweet.toString)
+      serverBuffer ! UpdatedUser(updatedUser.toString)
+      serverBuffer ! Tweet(newTweet.toString)
       val userDocument = Document(compact(render(updatedUser)))
       val tweetDocument = Document(compact(render(newTweet)))
 
