@@ -13,9 +13,6 @@ import scala.collection.mutable.ListBuffer
 
 class Sink extends Actor {
 
-  import akka.pattern.pipe
-  import context.dispatcher
-
   final implicit val materializer: ActorMaterializer = ActorMaterializer(ActorMaterializerSettings(context.system))
   val uri: String = "mongodb+srv://garciuj:Password1@rtpcluster.lzv0q.mongodb.net/TweetsDB?retryWrites=true&w=majority"
   System.setProperty("org.mongodb.async.type", "netty")
@@ -39,15 +36,16 @@ class Sink extends Actor {
       else {
         user = (newTweet \ "message" \ "tweet" \ "user").extract[JObject]
       }
-      val updatedUser = user ~ ("_id" -> uuid)
+      val updatedUser = user ~ ("_id" -> uuid) ~ ("topic_type" -> "users_topic")
+      val updatedTweet = newTweet ~ ("topic_type" -> "tweets_topic")
       serverBuffer ! UpdatedUser(updatedUser.toString)
-      serverBuffer ! Tweet(newTweet.toString)
+      serverBuffer ! Tweet(updatedTweet.toString)
       val userDocument = Document(compact(render(updatedUser)))
-      val tweetDocument = Document(compact(render(newTweet)))
+      val tweetDocument = Document(compact(render(updatedTweet)))
 
       if (tweetBuffer.length == 20) {
-        tweetsDataCol.insertMany(tweetBuffer.toList).results()
-        usersDataCol.insertMany(userBuffer.toList).results()
+//        tweetsDataCol.insertMany(tweetBuffer.toList).results()
+//        usersDataCol.insertMany(userBuffer.toList).results()
         userBuffer.clear()
         tweetBuffer.clear()
       }
@@ -68,8 +66,8 @@ class Sink extends Actor {
     trigger.scheduleAtFixedRate(new TimerTask {
       def run() = {
         if (tweetBuffer.length != 20 && tweetBuffer.nonEmpty && userBuffer.nonEmpty) {
-          tweetsDataCol.insertMany(tweetBuffer.toList).results()
-          usersDataCol.insertMany(userBuffer.toList).results()
+//          tweetsDataCol.insertMany(tweetBuffer.toList).results()
+//          usersDataCol.insertMany(userBuffer.toList).results()
           tweetBuffer.clear()
           userBuffer.clear()
           self ! true

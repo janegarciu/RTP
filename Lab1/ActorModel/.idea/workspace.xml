@@ -20,37 +20,99 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fda45fc2-ace7-405a-96f1-b234c9218b30" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/actormodel/ClientActorModel.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/actormodel/ServerBuffer.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/tcp/client/Client.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/tcp/client/Main.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/tcp/server/Main.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/tcp/server/SimplisticHandler.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/tcp/server/TcpServer.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/actormodel/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/tcp/client/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/tcp/server/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/actormodel/ClientReceive.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/actormodel/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/actormodel/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$128dbca16bfcfb7fe6fa$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$128dbca16bfcfb7fe6fa.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$128dbca16bfcfb7fe6fa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$18111bd5efb8fe270c81$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$18111bd5efb8fe270c81.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$18111bd5efb8fe270c81.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$3f522e8833e921ecdafb$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$3f522e8833e921ecdafb.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$3f522e8833e921ecdafb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$417e9612729e4d504028$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$417e9612729e4d504028.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$417e9612729e4d504028.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$4345ee40b14a423b8af5$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$4345ee40b14a423b8af5.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$4345ee40b14a423b8af5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$910752a2c88b0f87e12e$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$910752a2c88b0f87e12e.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$910752a2c88b0f87e12e.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/input_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/input_dsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/update/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/update/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/copyResources/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/copyResources/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/incOptions/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/incOptions/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/_global/streams/export" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/actormodel/Sink.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/actormodel/Sink.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/tcpserver/Application.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/tcpserver/Client.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/tcpserver/Server.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/tcpserver/SimplisticHandler.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ClientReceive$$anonfun$receive$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ClientReceive.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/actormodel/WorkerProtocol.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/actormodel/WorkerProtocol.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/tcp/client/Client.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tcp/client/TcpClient.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/tcp/client/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tcp/client/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/tcp/server/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tcp/server/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/tcp/server/SimplisticHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tcp/server/SimplisticHandler.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/tcp/server/TcpServer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/tcp/server/TcpServer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ActorPool$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ActorPool$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ActorPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ActorPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ActorPool2$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ActorPool2$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ActorPool2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ActorPool2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/EmotionValue$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/EmotionValue$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/EmotionValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/EmotionValue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/EngagementRatio$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/EngagementRatio$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/EngagementRatio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/EngagementRatio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ErrorMessage$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ErrorMessage$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ErrorMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ErrorMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/JsonWrapper$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/JsonWrapper$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/JsonWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/JsonWrapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Main$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Main$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Main$delayedInit$body.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Main$delayedInit$body.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Message$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Message$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/NakopitelyForServer$$anonfun$receive$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/NakopitelyForServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/NewTweet$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/NewTweet$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/NewTweet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/NewTweet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/RestartMeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/RestartMeException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ResumeMeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/ResumeMeException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Sink$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Sink$$anon$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Sink$$anonfun$receive$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Sink$$anonfun$receive$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Sink.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Sink.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcpserver/Application$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcpserver/Application$delayedInit$body.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcpserver/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcpserver/Client$$anonfun$receive$1$$anonfun$applyOrElse$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcpserver/Client$$anonfun$receive$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcpserver/Client$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcpserver/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcpserver/Server$$anonfun$receive$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/tcpserver/Server$$anonfun$receive$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Tweet$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Tweet$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Tweet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Tweet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/UpdatedUser$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/UpdatedUser$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/UpdatedUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/UpdatedUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Work$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Work$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Work.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Work.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Work2$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Work2$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Work2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/actormodel/Work2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/Main$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/Main$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/TcpClient$$anonfun$receive$1$$anonfun$applyOrElse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/TcpClient$$anonfun$receive$1$$anonfun$applyOrElse$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/TcpClient$$anonfun$receive$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/TcpClient$$anonfun$receive$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/TcpClient$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/TcpClient$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/TcpClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/TcpClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/Main$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/Main$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/SimplisticHandler$$anonfun$receive$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/SimplisticHandler$$anonfun$receive$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/SimplisticHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/SimplisticHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/TcpServer$$anonfun$receive$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/TcpServer$$anonfun$receive$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/TcpServer$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/TcpServer$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/TcpServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/TcpServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcpserver/Server$$anonfun$receive$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcpserver/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcpserver/SimplisticHandler$$anonfun$receive$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcpserver/SimplisticHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/_global/_global/csrLogger/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/_global/_global/csrLogger/_global/streams/out" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +153,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="ReactorSettings">
@@ -142,6 +207,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main (3)" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="tcp.client.Main" />
+      <module name="ActorModel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tcp.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ActorModel" />
@@ -152,6 +230,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main (3)" />
         <item itemvalue="Application.Main (2)" />
         <item itemvalue="Application.Application" />
         <item itemvalue="Application.Main" />
@@ -178,7 +257,12 @@
       <workItem from="1621281365461" duration="1725000" />
       <workItem from="1621364670875" duration="6595000" />
       <workItem from="1621753045686" duration="47000" />
-      <workItem from="1621964649417" duration="11399000" />
+      <workItem from="1621964649417" duration="18865000" />
+      <workItem from="1622357860653" duration="2161000" />
+      <workItem from="1622486703790" duration="3743000" />
+      <workItem from="1622492644499" duration="9840000" />
+      <workItem from="1622574680127" duration="93000" />
+      <workItem from="1622574817125" duration="14789000" />
     </task>
     <servers />
   </component>
@@ -198,18 +282,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="458" y="212" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1622046765415">
+    <state x="458" y="212" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1622580543315">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="212" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1622046765415" />
+    <state x="458" y="212" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1622580543315" />
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617050203283">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1617050203283" />
-    <state x="533" y="150" key="#com.intellij.ide.util.MemberChooser" timestamp="1621365894707">
+    <state x="533" y="150" key="#com.intellij.ide.util.MemberChooser" timestamp="1622569657122">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="150" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1621365894707" />
+    <state x="533" y="150" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1622569657122" />
     <state x="458" y="237" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1621366477846">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -222,49 +306,116 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1621366991415" />
-    <state x="686" y="308" key="#xdebugger.evaluate" timestamp="1617131490580">
+    <state x="686" y="308" key="#xdebugger.evaluate" timestamp="1622586904246">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="686" y="308" key="#xdebugger.evaluate/0.0.1440.900@0.0.1440.900" timestamp="1617131490580" />
-    <state width="1398" height="233" key="GridCell.Tab.0.bottom" timestamp="1622056669131">
+    <state x="686" y="308" key="#xdebugger.evaluate/0.0.1440.900@0.0.1440.900" timestamp="1622586904246" />
+    <state width="471" height="466" key="DebuggerActiveHint" timestamp="1622585897567">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="233" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1622056669131" />
-    <state width="1398" height="233" key="GridCell.Tab.0.center" timestamp="1622056669129">
+    <state width="471" height="466" key="DebuggerActiveHint/0.0.1440.900@0.0.1440.900" timestamp="1622585897567" />
+    <state width="1398" height="258" key="GridCell.Tab.0.bottom" timestamp="1622589797169">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="233" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1622056669129" />
-    <state width="1398" height="233" key="GridCell.Tab.0.left" timestamp="1622056669128">
+    <state width="1398" height="258" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1622589797169" />
+    <state width="1398" height="258" key="GridCell.Tab.0.center" timestamp="1622589797168">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="233" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1622056669128" />
-    <state width="1398" height="233" key="GridCell.Tab.0.right" timestamp="1622056669130">
+    <state width="1398" height="258" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1622589797167" />
+    <state width="1398" height="258" key="GridCell.Tab.0.left" timestamp="1622589797167">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="233" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1622056669130" />
-    <state width="1398" height="258" key="GridCell.Tab.1.bottom" timestamp="1622055031958">
+    <state width="1398" height="258" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1622589797167" />
+    <state width="1398" height="258" key="GridCell.Tab.0.right" timestamp="1622589797169">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="258" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1622055031958" />
+    <state width="1398" height="258" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1622589797169" />
+    <state width="1398" height="258" key="GridCell.Tab.1.bottom" timestamp="1622589797174">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="258" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1622589797174" />
     <state width="1398" height="304" key="GridCell.Tab.1.bottom/0.23.1440.798@0.23.1440.798" timestamp="1617131193303" />
-    <state width="1398" height="258" key="GridCell.Tab.1.center" timestamp="1622055031956">
+    <state width="1398" height="258" key="GridCell.Tab.1.center" timestamp="1622589797171">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="258" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1622055031956" />
+    <state width="1398" height="258" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1622589797171" />
     <state width="1398" height="304" key="GridCell.Tab.1.center/0.23.1440.798@0.23.1440.798" timestamp="1617131193302" />
-    <state width="1398" height="258" key="GridCell.Tab.1.left" timestamp="1622055031955">
+    <state width="1398" height="258" key="GridCell.Tab.1.left" timestamp="1622589797170">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="258" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1622055031955" />
+    <state width="1398" height="258" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1622589797170" />
     <state width="1398" height="304" key="GridCell.Tab.1.left/0.23.1440.798@0.23.1440.798" timestamp="1617131193301" />
-    <state width="1398" height="258" key="GridCell.Tab.1.right" timestamp="1622055031957">
+    <state width="1398" height="258" key="GridCell.Tab.1.right" timestamp="1622589797172">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="258" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1622055031957" />
+    <state width="1398" height="258" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1622589797172" />
     <state width="1398" height="304" key="GridCell.Tab.1.right/0.23.1440.798@0.23.1440.798" timestamp="1617131193302" />
-    <state width="720" height="450" key="XDebugger.FullValuePopup" timestamp="1617223974308">
+    <state x="208" y="31" key="SettingsEditor" timestamp="1622479366626">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="720" height="450" key="XDebugger.FullValuePopup/0.0.1440.900@0.0.1440.900" timestamp="1617223974308" />
+    <state x="208" y="31" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1622479366626" />
+    <state width="720" height="450" key="XDebugger.FullValuePopup" timestamp="1622588839662">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="720" height="450" key="XDebugger.FullValuePopup/0.0.1440.900@0.0.1440.900" timestamp="1622588839662" />
+    <state x="114" y="113" key="new project wizard" timestamp="1622479550375">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="114" y="113" key="new project wizard/0.0.1440.900@0.0.1440.900" timestamp="1622479550375" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1622479417628">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1622479417628" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/tcp/client/TcpClient.scala</url>
+          <line>33</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/tcp/server/SimplisticHandler.scala</url>
+          <line>37</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/tcp/server/SimplisticHandler.scala</url>
+          <line>25</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/tcp/server/SimplisticHandler.scala</url>
+          <line>33</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/tcp/server/SimplisticHandler.scala</url>
+          <line>20</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/tcp/server/SimplisticHandler.scala</url>
+          <line>46</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/tcp/server/SimplisticHandler.scala</url>
+          <line>40</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/tcp/server/SimplisticHandler.scala</url>
+          <line>22</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/tcp/server/SimplisticHandler.scala</url>
+          <line>42</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

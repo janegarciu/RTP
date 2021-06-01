@@ -2,17 +2,16 @@ package tcp.server
 
 import java.net.InetSocketAddress
 
-import akka.actor.{Actor, Props}
+import akka.actor.{Actor, ActorRef, Props}
 import akka.io.{IO, Tcp}
 import akka.util.ByteString
 
 object TcpServer {
-  def props(remote: InetSocketAddress) =
-    Props(new TcpServer(remote))
+  def props(remote: InetSocketAddress, handler: ActorRef) =
+    Props(new TcpServer(remote,handler))
 }
 
-
-class TcpServer(remote: InetSocketAddress) extends Actor {
+class TcpServer(remote: InetSocketAddress,handler: ActorRef) extends Actor {
 
   import akka.io.Tcp._
   import context.system
@@ -27,11 +26,11 @@ class TcpServer(remote: InetSocketAddress) extends Actor {
 
     case c @ Connected(remote, local) =>
       println(s"Client connected - Remote(Client): ${remote.getAddress} Local(Server): ${local.getAddress}")
-      val handler = context.actorOf(Props[SimplisticHandler])
+
       val connection = sender()
       connection ! Register(handler)
     case data: ByteString =>
-      println("Sending request data: " + data.utf8String)
+//      println("Sending request data to handler: " + data.utf8String)
 
   }
 

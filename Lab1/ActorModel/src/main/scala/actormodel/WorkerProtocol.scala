@@ -1,5 +1,6 @@
 package actormodel
 
+import akka.util.ByteString
 import org.json4s.JsonAST.JObject
 
 import scala.collection.mutable.ListBuffer
@@ -31,3 +32,6 @@ case class Tweet(tweet: String)
 class RestartMeException extends Exception("RESTART")
 
 class ResumeMeException extends Exception("RESUME")
+
+case class ClientTweet(user: ByteString)
+

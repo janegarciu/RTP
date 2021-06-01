@@ -36,8 +36,8 @@ class TcpClient(remote: InetSocketAddress, var listener: ActorRef) extends Actor
           // O/S buffer was full
           listener ! "write failed"
         case Received(data) =>
-          println(s"Data received - ${data.utf8String}")
-          listener ! data
+          println(s"Data received from server: - ${data.utf8String}")
+//          listener ! data
         case "close" =>
           connection ! Close
         case _: ConnectionClosed =>
