@@ -19,36 +19,34 @@ class SimplisticHandler extends Actor {
 //       val message = data.utf8String
 
       if (data.utf8String.contains("users_topic")) {
-        println("Found users-topic")
         if (addressesUsers.nonEmpty) {
-//          println("Sending users_topic to client...")
           addressesUsers.foreach(userSubscriber => {
             userSubscriber ! Write(ByteString("SERVER_Users_topics: ").concat(ByteString(data.utf8String)))
           })
         }
       } else if(data.utf8String.contains("tweets_topic")) {
-        println("Found tweets-topic")
         if (addressesTweets.nonEmpty) {
-//          println("Sending tweets_topic to client...")
           addressesTweets.foreach(tweetsSubscriber => {
             tweetsSubscriber ! Write(ByteString("SERVER_Tweets_topics: ").concat(ByteString(data.utf8String)))
           })
         }
       }
-      else if(data.utf8String.contains("subscribe") && data.utf8String.contains("tweets")) {
+      else if(data.utf8String.equals("subscribe to tweets")) {
+        println("Client " + sender().path + " subscribed to tweets")
         addressesTweets += sender()
       }
-      else if(data.utf8String.contains("subscribe") && data.utf8String.contains("users")) {
+      else if(data.utf8String.equals("subscribe to users") ) {
+        println("Client " + sender().path + " subscribed to users")
         addressesUsers += sender()
       }
-      else if(data.utf8String.contains("unsubscribe") && data.utf8String.contains("users")) {
-        addressesUsers -= sender()
+      else if(data.utf8String.equals("unsubscribe from users")) {
+        println("Client " + sender().path + " unsubscribed from users")
+            addressesUsers -= sender()
       }
-      else if(data.utf8String.contains("unsubscribe") && data.utf8String.contains("tweets")) {
-        addressesTweets -= sender()
+      else if(data.utf8String.equals("unsubscribe from tweets")) {
+        println("Client " + sender().path + " unsubscribed from tweets")
+            addressesTweets -= sender()
       }
-//      println("Sender Actor Path" + sender().path.toString)
-
     }
 
     //      println(s"Data received - ${data.utf8String}")
