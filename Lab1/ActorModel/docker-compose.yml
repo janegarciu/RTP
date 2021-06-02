@@ -1,0 +1,17 @@
+services:
+
+  client:
+    image: client
+
+  server:
+    image: server
+
+  rtpserver:
+    image: alexburlacu/rtp-server:faf18x
+    ports:
+      - "4000:4000"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://rtpserver:4000" ]
+      interval: 5s # 10s
+      timeout: 5s  # 10s
+      retries: 1  #2
