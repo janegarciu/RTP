@@ -1,11 +1,10 @@
 services:
-
-  client:
-    image: client
-
   server:
     image: server
-
+  client:
+    image: client
+  actormodel:
+    image: actormodel
   rtpserver:
     image: alexburlacu/rtp-server:faf18x
     ports:

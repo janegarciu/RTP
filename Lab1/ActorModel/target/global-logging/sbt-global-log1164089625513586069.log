@@ -1,0 +1,12 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(set scalaCompilerBridgeSource := sbt.internal.inc.ZincLmUtil.getDefaultBridgeModule(appConfiguration.value.provider.scalaProvider.version), None, None)[0m
+[0m[[0m[0minfo[0m] [0m[0mDefining scalaCompilerBridgeSource[0m
+[0m[[0m[0minfo[0m] [0m[0mThe new value will be used by compilers, console / compilers[0m
+[0m[[0m[0mdebug[0m] [0m[0mDefining [0m
+[0m[[0m[0mdebug[0m] [0m[0m	scalaCompilerBridgeSource[0m
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mThe new value will be used by [0m
+[0m[[0m[0mdebug[0m] [0m[0m	compilers[0m
+[0m[[0m[0mdebug[0m] [0m[0m	console / compilers[0m
+[0m[[0m[0minfo[0m] [0m[0mReapplying settings...[0m
+[0m[[0m[0minfo[0m] [0m[0mset current project to ActorModel (in build file:/Users/janegarciu/Documents/RTP/Lab1/ActorModel/)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

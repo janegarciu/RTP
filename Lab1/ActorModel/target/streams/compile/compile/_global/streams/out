@@ -1,0 +1,10 @@
+[0m[[0m[0mdebug[0m] [0m[0mAcquiring lock on file /Users/janegarciu/Documents/RTP/Lab1/ActorModel/project/target/.sbt-compilation-infos/actormodel-compile/.sbt-idea-lock ...[0m
+[0m[[0m[33mwarn[0m] [0m[0m/Users/janegarciu/Documents/RTP/Lab1/ActorModel/src/main/scala/actormodel/AutoScaler.scala:17:7: method with a single empty parameter list overrides method without any parameter list[0m
+[0m[[0m[33mwarn[0m] [0m[0m  def receive(): Receive = {[0m
+[0m[[0m[33mwarn[0m] [0m[0m      ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m1 deprecation (since 2.13.0)[0m
+[0m[[0m[33mwarn[0m] [0m[0m9 deprecations (since 2.13.3)[0m
+[0m[[0m[33mwarn[0m] [0m[0m8 deprecations (since 2.6.0)[0m
+[0m[[0m[33mwarn[0m] [0m[0m18 deprecations in total; re-run with -deprecation for details[0m
+[0m[[0m[33mwarn[0m] [0m[0m5 warnings found[0m
+[0m[[0m[0mdebug[0m] [0m[0mReleasing lock on file /Users/janegarciu/Documents/RTP/Lab1/ActorModel/project/target/.sbt-compilation-infos/actormodel-compile/.sbt-idea-lock.[0m
