@@ -20,26 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fda45fc2-ace7-405a-96f1-b234c9218b30" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/ClientListener$$anonfun$receive$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/ClientListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/Main$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/TcpClient$$anonfun$receive$1$$anonfun$applyOrElse$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/TcpClient$$anonfun$receive$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/TcpClient$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/client/TcpClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/Main$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/SimplisticHandler$$anonfun$receive$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/SimplisticHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/TcpServer$$anonfun$receive$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/TcpServer$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/tcp/server/TcpServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/scala/server/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/scala/server/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/scala/server/SimplisticHandler.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/scala/server/SimplisticHandler.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/target/scala-2.13/classes/server/Main$.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/target/scala-2.13/classes/server/Main$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/target/scala-2.13/classes/server/SimplisticHandler$$anonfun$receive$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/target/scala-2.13/classes/server/SimplisticHandler$$anonfun$receive$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +174,7 @@
       <workItem from="1622574817125" duration="14789000" />
       <workItem from="1622589803689" duration="233000" />
       <workItem from="1622590229766" duration="2548000" />
-      <workItem from="1622614463716" duration="8726000" />
+      <workItem from="1622614463716" duration="9075000" />
     </task>
     <servers />
   </component>
@@ -245,22 +226,22 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="471" height="466" key="DebuggerActiveHint/0.0.1440.900@0.0.1440.900" timestamp="1622585897567" />
-    <state width="1398" height="233" key="GridCell.Tab.0.bottom" timestamp="1622623335810">
+    <state width="1398" height="233" key="GridCell.Tab.0.bottom" timestamp="1622623970164">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="233" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1622623335810" />
-    <state width="1398" height="233" key="GridCell.Tab.0.center" timestamp="1622623335807">
+    <state width="1398" height="233" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1622623970164" />
+    <state width="1398" height="233" key="GridCell.Tab.0.center" timestamp="1622623970162">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="233" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1622623335807" />
-    <state width="1398" height="233" key="GridCell.Tab.0.left" timestamp="1622623335805">
+    <state width="1398" height="233" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1622623970162" />
+    <state width="1398" height="233" key="GridCell.Tab.0.left" timestamp="1622623970161">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="233" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1622623335805" />
-    <state width="1398" height="233" key="GridCell.Tab.0.right" timestamp="1622623335809">
+    <state width="1398" height="233" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1622623970161" />
+    <state width="1398" height="233" key="GridCell.Tab.0.right" timestamp="1622623970163">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="233" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1622623335809" />
+    <state width="1398" height="233" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1622623970163" />
     <state width="1398" height="258" key="GridCell.Tab.1.bottom" timestamp="1622589797174">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
